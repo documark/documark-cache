@@ -4,9 +4,9 @@ Documark helper functions for working with cache files.
 
 When running `var cache = require('documark-cache')(document);` the following happens:
 
-1. The cache helper will use given `document` for resolving paths
-2. A cache folder (`.documark/`) will be created in your document directory
-3. This directory will also be set as WkHTMLToPDF its `--cache-dir`
+1. The cache helper will use given `document` for resolving paths.
+2. A cache folder (`.documark/`) will be created in your document directory.
+3. This directory will also be set as wkhtmltopdf its `--cache-dir`.
 
 ### Usage
 
@@ -19,7 +19,9 @@ When running `var cache = require('documark-cache')(document);` the following ha
 2. Use the cache helper in your plugins:
 
 	```js
-	module.exports = function pluginNameHere ($, document, cb) {
+	var fs = require('fs');
+
+	module.exports = function dmpPluginNameHere ($, document, done) {
 		var cache = require('documark-cache')(document);
 
 		// Folder path:
@@ -29,6 +31,8 @@ When running `var cache = require('documark-cache')(document);` the following ha
 		// File path:
 		var filePath = cache.filePath('myfile.json');
 		// Path to <document root>/.documark/myfile.json
+
+		fs.writeFileSync(filePath, 'some content');
 
 		// Read file:
 		var file = cache.fileReadStream('my-cache-file.json');
@@ -43,9 +47,12 @@ When running `var cache = require('documark-cache')(document);` the following ha
 		var file = cache.fileWriteStream('my-cache-file.json');
 
 		file.end(JSON.stringify({ hello: 'world!' });
+		// file.path contains the stream it's file path string
 
-		cb();
+		done();
 	};
 	```
 
-__Note:__ Use `file.path` to get read/write stream its file path.
+__Note:__ Don't worry about unsafe file names, they will be [sanitized automatically][sanitize-filename].
+
+[sanitize-filename]: https://www.npmjs.com/package/sanitize-filename
