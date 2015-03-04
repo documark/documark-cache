@@ -30,7 +30,11 @@ module.exports = function helperCache (document) {
 	}
 
 	// Set WkHTMLToPDF cache dir
-	document.config().pdf.cacheDir = cacheFolder;
+	var pdf = document.config().pdf;
+
+	if (typeof pdf.cacheDir === 'undefined') {
+		pdf.cacheDir = cacheFolder;
+	}
 
 	return functions;
 };
