@@ -1,6 +1,9 @@
 # Documark Cache
 
-Documark helper functions for working with cache files.
+[![npm version](https://badge.fury.io/js/documark-cache.svg)](http://badge.fury.io/js/documark-cache)
+[![dependency status](https://david-dm.org/documark/documark-cache.svg)](https://david-dm.org/documark/documark-cache)
+
+> Documark helper functions for working with cache files.
 
 When running `var cache = require('documark-cache')(document);` the following happens:
 

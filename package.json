@@ -5,7 +5,7 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/mauvm/documark-cache.git"
+    "url": "https://github.com/documark/documark-cache.git"
   },
   "keywords": [
     "documark",
@@ -18,9 +18,9 @@
   "author": "Maurits van Mastrigt <maurits@nerdieworks.nl>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mauvm/documark-cache/issues"
+    "url": "https://github.com/documark/documark-cache/issues"
   },
-  "homepage": "https://github.com/mauvm/documark-cache",
+  "homepage": "https://github.com/documark/documark-cache",
   "dependencies": {
     "sanitize-filename": "^1.1.3"
   }
